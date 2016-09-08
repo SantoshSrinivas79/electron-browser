@@ -125,22 +125,6 @@ var BrowserChrome = React.createClass({
   },
   webviewContextMenu: function (e) {
     var self = this
-    var menu = new Menu()
-    if (e.href) {
-      menu.append(new MenuItem({ label: 'Open Link in New Tab', click: function () { self.createTab(e.href) } }))
-      menu.append(new MenuItem({ label: 'Copy Link Address', click: function () { clipboard.writeText(e.href) } }))
-    }
-    if (e.img) {
-      menu.append(new MenuItem({ label: 'Save Image As...', click: function () { alert('todo') } }))
-      menu.append(new MenuItem({ label: 'Copy Image URL', click: function () { clipboard.writeText(e.img) } }))
-      menu.append(new MenuItem({ label: 'Open Image in New Tab', click: function () { self.createTab(e.img) } }))
-    }
-    if (e.hasSelection)
-      menu.append(new MenuItem({ label: 'Copy', click: function () { self.getWebView().copy() } }))
-    menu.append(new MenuItem({ label: 'Select All', click: function () { self.getWebView().selectAll() } }))
-    menu.append(new MenuItem({ type: 'separator' }))
-    menu.append(new MenuItem({ label: 'Inspect Element', click: function() { self.getWebView().inspectElement(e.x, e.y) } }))
-    menu.popup(remote.getCurrentWindow())
   },
 
   tabHandlers: {
