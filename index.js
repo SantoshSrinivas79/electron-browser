@@ -1,6 +1,6 @@
 var app  = require('app')
 var BrowserWindow = require('browser-window')
-
+app.commandLine.appendSwitch('ignore-certificate-errors', true)
 var mainWindow = null
 
 app.on('window-all-closed', function() {

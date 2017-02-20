@@ -18,5 +18,7 @@
     "electron-prebuilt": "^0.28.2"
   },
   "dependencies": {
+    "json-fetch": "^5.0.2",
+    "whatwg-fetch": "^2.0.2"
   }
 }
