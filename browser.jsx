@@ -1,5 +1,6 @@
 'use strict'
 var remote = require('remote')
+var dialog = remote.require('dialog')
 var Menu = remote.require('menu')
 var MenuItem = remote.require('menu-item')
 var clipboard = require('clipboard')
@@ -154,7 +155,19 @@ var BrowserChrome = React.createClass({
       remote.getCurrentWindow().minimize()
     },
     onClose: function () {
-      remote.getCurrentWindow().close()
+        // Credit: https://github.com/electron/electron/issues/2301
+          var choice = dialog.showMessageBox(
+            remote.getCurrentWindow(),
+            {
+                type: 'warning',
+                buttons: ['Yes', 'No'],
+                title: 'Confirm',
+                message: 'Are you sure you want to quit?'
+            });
+
+          if(choice === 0){
+            remote.getCurrentWindow().close()
+          }
     }
   },
 

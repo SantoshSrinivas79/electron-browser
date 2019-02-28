@@ -14,7 +14,7 @@ app.on('ready', function () {
   mainWindow.loadUrl('file://' + require('path').join(__dirname, 'browser.html'))
   mainWindow.on('close', function(e) {
   	console.log("This is getting closed");
-    e.preventDefault();
+    // e.preventDefault();
   })
 
 
