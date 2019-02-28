@@ -4,10 +4,14 @@ var Menu = remote.require('menu')
 var MenuItem = remote.require('menu-item')
 var clipboard = require('clipboard')
 var urllib = require('url')
+// Credit: [Transfer objects between window and node · nwjs/nw.js Wiki](https://github.com/nwjs/nw.js/wiki/Transfer-objects-between-window-and-node)
+var tasks=require('./tasks.js');
+
+const URL = tasks.getURL();
 
 function createPageObject (location) {
   return {
-    location: location||'https://kite.zerodha.com/',
+    location: location||URL,
     statusText: false,
     title: 'new tab',
     isLoading: false,
